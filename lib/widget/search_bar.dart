@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
+import 'package:sampleapp/controller/providers.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends ConsumerWidget {
   const SearchBar({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: EdgeInsets.only(
           top: 15.0 * WidgetsConstant.height,
@@ -22,13 +24,17 @@ class SearchBar extends StatelessWidget {
           ),
         ),
         height: 55 * WidgetsConstant.height,
-        child: const Center(
+        child: Center(
           child: TextField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: '      Search Your Model',
               suffixIcon: Icon(Icons.search),
             ),
+            onChanged: (val) {
+              print("type val $val");
+              ref.read(itemCategoryProvider.state).state = val.trim();
+            },
           ),
         ),
       ),

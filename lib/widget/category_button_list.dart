@@ -7,13 +7,7 @@ class ProductCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> buttonName = const [
-      'All Product',
-      'guitar',
-      'piano',
-      'drums',
-      'Other'
-    ];
+    List<String> buttonName = const ['All Product', 'guitar', 'piano', 'drums'];
     return Padding(
       padding: EdgeInsets.only(top: 70 * WidgetsConstant.height),
       child: Column(
@@ -33,7 +27,7 @@ class ProductCategoryList extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: buttonName.length,
                 itemBuilder: (BuildContext context, int index) =>
                     CategoryListItem(buttonName: buttonName[index]),
               ),
