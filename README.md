@@ -1,4 +1,4 @@
-# sampleapp
+# ecologital sampleapp
 
 A new Flutter project.
 
