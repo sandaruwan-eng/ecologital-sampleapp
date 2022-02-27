@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
 import 'package:sampleapp/controller/providers.dart';
 import 'package:sampleapp/models/product.dart';
+import 'package:sampleapp/style_guide/colors.dart';
 import 'package:sampleapp/widget/widget.dart';
 
 class ProductList extends StatelessWidget {
@@ -49,6 +50,9 @@ class ProductList extends StatelessWidget {
                           itemBuilder: (BuildContext context, int index) =>
                               ProductListItem(
                                 productItem: filterList[index],
+                                itemThemeColor: index % 2 == 0
+                                    ? guitarThemeColor
+                                    : pianoThemeColor,
                               )),
                     );
                   });

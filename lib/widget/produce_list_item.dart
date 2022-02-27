@@ -1,23 +1,25 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
 import 'package:sampleapp/models/product.dart';
 import 'package:sampleapp/screens/product_details_screen.dart';
 
 class ProductListItem extends StatelessWidget {
-  const ProductListItem({Key? key, required this.productItem})
+  const ProductListItem(
+      {Key? key, required this.productItem, required this.itemThemeColor})
       : super(key: key);
   final Result productItem;
+  final Color itemThemeColor;
   @override
   Widget build(BuildContext context) {
     final _appTheme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(context, '/second', arguments: productItem);
+        var arguments = Map();
+        arguments['product'] = productItem;
+        arguments['itemColor'] = itemThemeColor;
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ProductDetailsScreen(
-                  arguments: productItem,
+                  arguments: arguments,
                 )));
       },
       child: Padding(
@@ -26,7 +28,7 @@ class ProductListItem extends StatelessWidget {
             top: 30.0 * WidgetsConstant.height),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+            color: itemThemeColor,
             borderRadius: const BorderRadius.all(
               Radius.circular(35),
             ),

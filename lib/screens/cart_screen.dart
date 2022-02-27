@@ -57,7 +57,7 @@ class CartScreen extends StatelessWidget {
                         children: <Widget>[
                           Divider(
                             height: 20,
-                            thickness: 3,
+                            thickness: 2,
                             indent: 30 * WidgetsConstant.width,
                             endIndent: 30 * WidgetsConstant.width,
                             color: primaryColor,
@@ -89,6 +89,8 @@ class CartScreen extends StatelessWidget {
                   } else {
                     return ProductCard(
                       product: cartList[index],
+                      cartItemThemeColor:
+                          index % 2 == 0 ? guitarThemeColor : pianoThemeColor,
                     );
                   }
                 }),

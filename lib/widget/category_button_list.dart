@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
+import 'package:sampleapp/style_guide/colors.dart';
+import 'package:sampleapp/style_guide/image_assets.dart';
 import 'package:sampleapp/widget/widget.dart';
 
 class ProductCategoryList extends StatelessWidget {
@@ -8,6 +10,13 @@ class ProductCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> buttonName = const ['All Product', 'guitar', 'piano', 'drums'];
+    List<String> buttonIcon = const [allInstrument, guitar, piano, drum];
+    List<Color> buttonColors = const [
+      allButtonColor,
+      guitarButtonColor,
+      pianoButtonColor,
+      drumsButtonColor
+    ];
     return Padding(
       padding: EdgeInsets.only(top: 70 * WidgetsConstant.height),
       child: Column(
@@ -29,7 +38,11 @@ class ProductCategoryList extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: buttonName.length,
                 itemBuilder: (BuildContext context, int index) =>
-                    CategoryListItem(buttonName: buttonName[index]),
+                    CategoryListItem(
+                  buttonName: buttonName[index],
+                  buttonIcon: buttonIcon[index],
+                  buttonColor: buttonColors[index],
+                ),
               ),
             ),
           ),

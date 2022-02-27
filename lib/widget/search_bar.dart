@@ -26,13 +26,15 @@ class SearchBar extends ConsumerWidget {
         height: 55 * WidgetsConstant.height,
         child: Center(
           child: TextField(
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              hintText: '      Search Your Model',
-              suffixIcon: Icon(Icons.search),
-            ),
+            textAlign: TextAlign.left,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Search Your Model',
+                suffixIcon: const Icon(Icons.search),
+                contentPadding: EdgeInsets.only(
+                    left: 30 * WidgetsConstant.width,
+                    top: 14 * WidgetsConstant.height)),
             onChanged: (val) {
-              print("type val $val");
               ref.read(itemCategoryProvider.state).state = val.trim();
             },
           ),

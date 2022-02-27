@@ -4,12 +4,13 @@ import 'package:sampleapp/constant/widgets_constant.dart';
 import 'package:sampleapp/controller/product_list.dart';
 import 'package:sampleapp/controller/providers.dart';
 import 'package:sampleapp/models/product.dart';
-import 'package:sampleapp/style_guide/colors.dart';
-import 'package:sampleapp/style_guide/image_assets.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key, required this.product}) : super(key: key);
+  const ProductCard(
+      {Key? key, required this.product, required this.cartItemThemeColor})
+      : super(key: key);
   final Result product;
+  final Color cartItemThemeColor;
   @override
   Widget build(BuildContext context) {
     final _appTheme = Theme.of(context);
@@ -20,7 +21,7 @@ class ProductCard extends StatelessWidget {
           right: 30 * WidgetsConstant.width),
       child: Container(
         decoration: BoxDecoration(
-          color: primaryColor,
+          color: cartItemThemeColor,
           border: Border.all(
             color: Colors.white,
           ),
@@ -55,14 +56,14 @@ class ProductCard extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 20 * WidgetsConstant.height),
                   child: Text(
                     product.model,
-                    style: _appTheme.textTheme.headline6!
-                        .merge(const TextStyle(color: Colors.white)),
+                    style: _appTheme.textTheme.headline5!.merge(const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w800)),
                   ),
                 ),
                 Text(
                   "Rs ${product.price.toString()}",
-                  style: _appTheme.textTheme.headline6!
-                      .merge(const TextStyle(color: Colors.white)),
+                  style: _appTheme.textTheme.headline5!.merge(const TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w800)),
                 ),
               ],
             ),
