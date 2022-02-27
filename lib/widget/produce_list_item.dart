@@ -49,7 +49,7 @@ class ProductListItem extends StatelessWidget {
                         child: Text(
                           productItem.model,
                           style: _appTheme.textTheme.button!
-                              .merge(const TextStyle(color: Colors.black)),
+                              .merge(const TextStyle(color: Colors.black54)),
                         ),
                       ),
                     ),

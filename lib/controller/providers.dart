@@ -11,4 +11,4 @@ final cartListProvider =
     StateNotifierProvider<ProductListController, List<Result>>(
         (ref) => ProductListController());
 
-final itemCategoryProvider = StateProvider<String>((ref) => "All Product");
+final itemCategoryProvider = StateProvider<String>((ref) => "all product");

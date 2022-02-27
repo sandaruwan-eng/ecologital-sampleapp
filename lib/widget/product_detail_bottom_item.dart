@@ -23,13 +23,13 @@ class ProductDetailBottomItem extends StatelessWidget {
             child: Text(
               productTitle,
               style: _appTheme.textTheme.headline6!
-                  .merge(const TextStyle(color: Colors.black)),
+                  .merge(const TextStyle(color: Colors.black54)),
             ),
           ),
           Text(
             productDetailName,
             style: _appTheme.textTheme.headline6!.merge(const TextStyle(
-              color: Colors.black,
+              color: Colors.black54,
               fontWeight: FontWeight.w300,
             )),
           ),

@@ -12,6 +12,7 @@ class ProductDetailsScreen extends StatelessWidget {
   final likeProvider = StateProvider<bool>((ref) => false);
   @override
   Widget build(BuildContext context) {
+    final _appTheme = Theme.of(context);
     return Scaffold(
       backgroundColor: arguments["itemColor"],
       appBar: AppBar(
@@ -41,7 +42,8 @@ class ProductDetailsScreen extends StatelessWidget {
               return Badge(
                 badgeContent: Text(
                   cartList.length.toString(),
-                  style: const TextStyle(color: Colors.white),
+                  style: _appTheme.textTheme.caption!
+                      .merge(const TextStyle(color: Colors.white)),
                 ),
                 position: BadgePosition.topEnd(top: 3, end: 3),
                 showBadge: cartList.isNotEmpty,

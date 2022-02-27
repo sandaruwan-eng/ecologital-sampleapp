@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 "Sudesh Kumara",
                 style: _appTheme.textTheme.headline6!
-                    .merge(const TextStyle(color: Colors.black)),
+                    .merge(const TextStyle(color: Colors.black54)),
               ),
             ],
           ),

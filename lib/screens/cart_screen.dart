@@ -71,14 +71,20 @@ class CartScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   "Total",
-                                  style: _appTheme.textTheme.headline4!.merge(
-                                      const TextStyle(color: Colors.grey)),
+                                  style: _appTheme.textTheme.headline4!
+                                      .merge(const TextStyle(
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.w500,
+                                  )),
                                 ),
                                 const Spacer(),
                                 Text(
                                   "Rs. ${totalPrice.toString()}",
-                                  style: _appTheme.textTheme.headline4!.merge(
-                                      const TextStyle(color: Colors.grey)),
+                                  style: _appTheme.textTheme.headline4!
+                                      .merge(const TextStyle(
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.w500,
+                                  )),
                                 )
                               ],
                             ),
@@ -95,11 +101,14 @@ class CartScreen extends StatelessWidget {
                   }
                 }),
           ),
-          Align(
-            alignment: FractionalOffset.bottomCenter,
-            child: CommonButton(
-              buttonTitle: "Check out",
-              callBack: () {},
+          Padding(
+            padding: EdgeInsets.only(bottom: 10 * WidgetsConstant.height),
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: CommonButton(
+                buttonTitle: "Check out",
+                callBack: () {},
+              ),
             ),
           ),
         ]);

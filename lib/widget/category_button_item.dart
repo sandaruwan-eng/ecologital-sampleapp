@@ -37,7 +37,8 @@ class CategoryListItem extends ConsumerWidget {
                 primary: Colors.grey,
               ),
               onPressed: () {
-                ref.read(itemCategoryProvider.state).state = buttonName;
+                ref.read(itemCategoryProvider.state).state =
+                    buttonName.toLowerCase();
               },
               child: Row(
                 children: [

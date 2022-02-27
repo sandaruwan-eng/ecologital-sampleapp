@@ -42,7 +42,7 @@ class ProductScreenBottomPart extends StatelessWidget {
                       productItem.model,
                       style: _appTheme.textTheme.headline4!.merge(
                           const TextStyle(
-                              color: Colors.black,
+                              color: Colors.black54,
                               fontWeight: FontWeight.w500)),
                     ),
                   ],

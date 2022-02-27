@@ -8,6 +8,7 @@ class SearchBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _appTheme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.only(
           top: 15.0 * WidgetsConstant.height,
@@ -17,7 +18,7 @@ class SearchBar extends ConsumerWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
-            color: Colors.grey,
+            color: Colors.grey.shade300,
           ),
           borderRadius: const BorderRadius.all(
             Radius.circular(15),
@@ -30,6 +31,8 @@ class SearchBar extends ConsumerWidget {
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Search Your Model',
+                hintStyle: _appTheme.textTheme.subtitle2!
+                    .merge(TextStyle(color: Colors.grey.shade500)),
                 suffixIcon: const Icon(Icons.search),
                 contentPadding: EdgeInsets.only(
                     left: 30 * WidgetsConstant.width,

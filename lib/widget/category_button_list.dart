@@ -9,7 +9,7 @@ class ProductCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> buttonName = const ['All Product', 'guitar', 'piano', 'drums'];
+    List<String> buttonName = const ['All Product', 'Guitar', 'Piano', 'Drums'];
     List<String> buttonIcon = const [allInstrument, guitar, piano, drum];
     List<Color> buttonColors = const [
       allButtonColor,
@@ -26,7 +26,7 @@ class ProductCategoryList extends StatelessWidget {
             padding: EdgeInsets.only(left: 30.0 * WidgetsConstant.width),
             child: const Text(
               'By Category',
-              style: TextStyle(color: Colors.black, fontSize: 19.0),
+              style: TextStyle(color: Colors.black54, fontSize: 19.0),
             ),
           ),
           Padding(
