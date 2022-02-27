@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
         ),
         const SearchBar(),
         const ProductCategoryList(),
-        const ProductList(),
+        ProductList(),
       ],
     );
   }

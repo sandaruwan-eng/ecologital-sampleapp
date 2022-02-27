@@ -31,11 +31,19 @@ class ProductCard extends StatelessWidget {
         height: 160 * WidgetsConstant.height,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Center(
-              child: Image.network(
-                product.image,
-                scale: 9,
+            Padding(
+              padding: EdgeInsets.only(left: 20 * WidgetsConstant.width),
+              child: Center(
+                child: SizedBox(
+                  height: 100 * WidgetsConstant.height,
+                  width: 100 * WidgetsConstant.height,
+                  child: Image.network(
+                    product.image,
+                    scale: 9,
+                  ),
+                ),
               ),
             ),
             const Spacer(),
@@ -46,13 +54,13 @@ class ProductCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 20 * WidgetsConstant.height),
                   child: Text(
-                    product.category,
+                    product.model,
                     style: _appTheme.textTheme.headline6!
                         .merge(const TextStyle(color: Colors.white)),
                   ),
                 ),
                 Text(
-                  product.brand,
+                  "Rs ${product.price.toString()}",
                   style: _appTheme.textTheme.headline6!
                       .merge(const TextStyle(color: Colors.white)),
                 ),

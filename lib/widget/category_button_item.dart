@@ -1,24 +1,17 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
+import 'package:sampleapp/controller/providers.dart';
 
-class CategoryListItem extends StatelessWidget {
-  CategoryListItem({Key? key, required this.buttonName}) : super(key: key);
+class CategoryListItem extends ConsumerWidget {
+  const CategoryListItem({Key? key, required this.buttonName})
+      : super(key: key);
 
   final String buttonName;
-  final ButtonStyle flatButtonStyle = ElevatedButton.styleFrom(
-    onPrimary: Colors.black87,
-    primary: Colors.grey[300],
-    minimumSize: const Size(88, 36),
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(2)),
-    ),
-  );
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final _appTheme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.only(
@@ -42,7 +35,9 @@ class CategoryListItem extends StatelessWidget {
                     right: 10.0 * WidgetsConstant.width),
                 primary: Colors.grey,
               ),
-              onPressed: () {},
+              onPressed: () {
+                ref.read(itemCategoryProvider.state).state = buttonName;
+              },
               child: Row(
                 children: [
                   const Icon(

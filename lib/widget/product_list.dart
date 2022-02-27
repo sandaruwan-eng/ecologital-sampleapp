@@ -27,17 +27,31 @@ class ProductList extends StatelessWidget {
 
             return productList.when(
                 data: (list) {
-                  return SizedBox(
-                    height: 250 * WidgetsConstant.height,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: list.result.length,
-                        itemBuilder: (BuildContext context, int index) =>
-                            ProductListItem(
-                              productItem: list.result[index],
-                            )),
-                  );
+                  return Consumer(builder: (context, ref, _) {
+                    List<Result> filterList = [];
+                    final itemCategoryName =
+                        ref.watch(itemCategoryProvider.state).state;
+                    if (itemCategoryName == "All Product") {
+                      filterList = list.result;
+                    } else {
+                      filterList = list.result
+                          .where((item) =>
+                              (item.category.contains(itemCategoryName)))
+                          .toList();
+                    }
+
+                    return SizedBox(
+                      height: 250 * WidgetsConstant.height,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: filterList.length,
+                          itemBuilder: (BuildContext context, int index) =>
+                              ProductListItem(
+                                productItem: filterList[index],
+                              )),
+                    );
+                  });
                 },
                 loading: () => Padding(
                       padding:

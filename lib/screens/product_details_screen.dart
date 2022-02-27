@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sampleapp/controller/providers.dart';
 import 'package:sampleapp/models/product.dart';
 import 'package:sampleapp/widget/widget.dart';
 import 'package:badges/badges.dart';
@@ -34,15 +35,21 @@ class ProductDetailsScreen extends StatelessWidget {
               onPressed: () => ref.read(likeProvider.state).state = !isLike,
             );
           }),
-          Badge(
-            badgeContent: const Text('3'),
-            position: BadgePosition.topEnd(top: 3, end: 3),
-            showBadge: true,
-            child: IconButton(
-              icon: const Icon(Icons.shopping_cart, color: Colors.white),
-              onPressed: () => Navigator.pushNamed(context, '/cart_screen'),
-            ),
-          )
+          Consumer(
+            builder: (context, ref, _) {
+              // final ProductListController controller = ref.watch(cartListProvider.notifier);
+              final cartList = ref.watch(cartListProvider);
+              return Badge(
+                badgeContent: Text(cartList.length.toString()),
+                position: BadgePosition.topEnd(top: 3, end: 3),
+                showBadge: cartList.isNotEmpty,
+                child: IconButton(
+                  icon: const Icon(Icons.shopping_cart, color: Colors.white),
+                  onPressed: () => Navigator.pushNamed(context, '/cart_screen'),
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: Column(

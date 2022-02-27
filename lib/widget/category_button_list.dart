@@ -9,9 +9,9 @@ class ProductCategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> buttonName = const [
       'All Product',
-      'Guitar',
-      'Piano',
-      'Other',
+      'guitar',
+      'piano',
+      'drums',
       'Other'
     ];
     return Padding(

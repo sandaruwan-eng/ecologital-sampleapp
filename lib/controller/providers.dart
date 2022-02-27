@@ -7,9 +7,8 @@ final productListProvider = FutureProvider(
   (ref) => getProductList(),
 );
 
-//final cartListProvider =
-//    StateNotifierProvider((ref) => ProductListController());
-
 final cartListProvider =
     StateNotifierProvider<ProductListController, List<Result>>(
         (ref) => ProductListController());
+
+final itemCategoryProvider = StateProvider<String>((ref) => "All Product");
