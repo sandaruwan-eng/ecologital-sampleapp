@@ -24,7 +24,6 @@ class CartScreen extends StatelessWidget {
       ),
       body: Consumer(
         builder: (context, ref, _) {
-          // final ProductListController controller = ref.watch(cartListProvider.notifier);
           final cartList = ref.watch(cartListProvider);
           return cartList.isEmpty
               ? _emptyScreen(_appTheme, context)

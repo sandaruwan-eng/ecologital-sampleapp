@@ -1,4 +1,4 @@
-// ignore: constant_identifier_names
+const String profileImage = 'assets/images/profile.png';
 const String guitar = "assets/images/guitar.png";
 const String drum = "assets/images/drum.png";
 const String piano = "assets/images/piano.png";

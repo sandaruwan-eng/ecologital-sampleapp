@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampleapp/constant/widgets_constant.dart';
 import 'package:sampleapp/style_guide/colors.dart';
+import 'package:sampleapp/style_guide/image_assets.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class Profile extends StatelessWidget {
               radius: 26,
               child: CircleAvatar(
                 radius: 26,
-                backgroundImage: AssetImage('assets/images/profile.png'),
+                backgroundImage: AssetImage(profileImage),
               ),
             ),
           ),
